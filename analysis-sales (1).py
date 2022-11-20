@@ -263,6 +263,11 @@ plt.show()
 
 
 
-# from itertools import combinations
-# from collections import counter
-# 
+from itertools import combinations
+from collections import counter
+counter = Counter()
+
+for row in df['Grouped']:
+    row_list = row.split(',')
+    counter.update(Counter(combinations(row_list, 2)))
+counter.most_common(10)
